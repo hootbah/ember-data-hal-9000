@@ -170,6 +170,9 @@ export default JSONAPISerializer.extend({
       if (Object.keys(relationships).length > 0) {
         data.relationships = relationships;
       }
+      if (data.attributes) {
+        this.applyTransforms(primaryModelClass, data.attributes);
+      }
     }
 
     return data;
